@@ -434,6 +434,30 @@ This style guide is mostly based on the standards that are currently prevalent i
   }
   ```
 
+  - Use the `prop-types` library instead of `React.PropTypes`
+
+  ```jsx
+  // bad
+  function SFC({ foo, bar, children }) {
+    return <div>{foo}{bar}{children}</div>;
+  }
+  SFC.propTypes = {
+    foo: React.PropTypes.number.isRequired,
+    bar: React.PropTypes.string,
+    children: React.PropTypes.node,
+  };
+
+  // good
+  function SFC({ foo, bar, children }) {
+    return <div>{foo}{bar}{children}</div>;
+  }
+  SFC.propTypes = {
+    foo: PropTypes.number.isRequired,
+    bar: PropTypes.string,
+    children: PropTypes.node,
+  };
+  ```
+
 ## Refs
 
   - Always use ref callbacks. eslint: [`react/no-string-refs`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md)
